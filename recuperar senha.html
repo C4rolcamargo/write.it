@@ -5,20 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recuperar Senha</title>
     <style>
+
+.header-content, .footer-content {
+        position: relative;
+    }
+
+    .write-it 
+        {
+        position: absolute;
+        left: 10%;
+        top: 5%;
+        font-size: 230%;
+        font-family: Brush Script MT, Brush Script Std, cursive;
+        color: #702C2B;
+        margin-top: 25px;
+    }
+
+    .divisor {
+        position: absolute;
+        left: -4%;
+        top: 8%;
+        width: 1280px;
+        height: 5px;
+        background-color: #EEEEEE;
+        margin: 50px;
+        margin-top: 90px;
+    }
+
+    .divisor2 {
+        position: absolute;
+        left: -4%;
+        top: 82%;
+        width: 1280px;
+        height: 4px;
+        background-color: #EEEEEE;
+        margin: 50px;
+
+    }
         body {
             font-family: sans-serif;
         }
         
         .container {
-            width: 500px;
+            width: 330px;
+            height: 330px;
             margin: 0 auto;
             padding: 20px;
-            border: 1px solid #ccc;
+            background-color: #fffaf6;
+            opacity: 80%;
+            border: 3px solid #7D3C3B;
+            margin-top: 95px;
+            align-items: center;
+            border-radius: 13%;
         }
         
         h1 {
             text-align: center;
             margin-bottom: 20px;
+            color: #D3ADAD;
+            font-family: Courier New, monospace;
         }
         
         .input-group {
@@ -36,30 +81,102 @@
             border: 1px solid #ccc;
         }
         
-        button {
-            background-color: #007bff;
-            color: #fff;
-            padding: 10px 20px;
-            border: none;
-            cursor: pointer;
+        button { 
+            width: 70px;
+          height: 30px;
+          margin-top: 100%;
+          background-color: #fffaf6;
+          color: #000000;
+          border-color: #C56869;
+          border-radius: 18%;
+          cursor: pointer;
+          margin: 20px auto;
+          display: block;
+        }
+
+        .insta {
+        position: absolute;
+        left: 50%;
+        top: 92.7%;
+    }
+    .rodape{
+      position: relative
+      ;
+
+    }
+    .single-input{
+            margin: 20px 0;
+            position: relative;
+            text-align: center;
+            align-items: center;
+            
+        }
+
+        .single-input label {
+            position: absolute;
+            left: 0;
+            color: #A09F9F;
+            bottom: 5px;
+            cursor: text;
+            left: 10%;
+        }
+
+        .single-input .input {
+            width: 250px;
+            padding: 5px;
+            font-size: 16px;
+            background-color: #fffaf6;
+            border: 0;
+            border-bottom: 2px solid #D9D9D9;
+            outline: 0;
+           
+        }
+
+        .single-input .input:focus,
+        .single-input .input:valid{
+            border-bottom: 2px solid #d6bda7;
+            text-align: center;
+            align-items: center;
+        }
+
+        .single-input .input:focus ~ label,
+        .single-input .input:valid ~ label{
+            transform: translateY(-24px);
+            font-size: 12px;
+            color: #d6bda7;
+            text-align: center;
+            align-items: center;
         }
     </style>
 </head>
 <body>
+    <header>
+        <div class="header-content">
+            <img src="/img/logo.png" class="logo">
+            <p class="write-it">Write It</p>
+            <div class="divisor"></div>
+        </div>
+    </header>
+
     <div class="container">
         <h1>Recuperar Senha</h1>
         <form action="#">
-            <div class="input-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" name="email" required>
-            </div>
+            <div class="single-input">
+                <input required type="text" name="" id="email" class="input">
+                <label for="email">Email</label>
+             </div>
             <button type="button" onclick="sendRecoveryEmail()">Confirmar</button>
         </form>
+        <div id="rodape">
+            <div class="divisor2"></div>
+            <a href="" class="insta"><img src="/img/insta.png"></a>
+        </div>
     </div>
 
     <script>
         function sendRecoveryEmail() {
             alert("Enviaremos uma mensagem em sua caixa de entrada!");
+            
             // Aqui você poderia adicionar código para enviar um email de recuperação
         }
     </script>
