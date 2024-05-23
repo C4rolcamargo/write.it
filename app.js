@@ -1,4 +1,3 @@
-```javascript
 import React from 'react';
 import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
 
@@ -65,5 +64,3 @@ const styles = StyleSheet.create({
 });
 
 export default App;
-```
-
