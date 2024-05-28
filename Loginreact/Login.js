@@ -1,15 +1,17 @@
-// Login.js
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, StyleSheet, Alert, ScrollView } from 'react-native';
-
+import { useNavigation } from '@react-navigation/native';
+import Perfil from './Perfil.js'
 const Login = () => {
+    const navigation = useNavigation(); // Obtenha o objeto de navegação
+
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
 
     const handleSubmit = () => {
         const formData = { email, senha };
 
-        fetch('http://192.168.1.141:3000/atualizar', { // Ajuste a URL para o seu servidor
+        fetch('http://192.168.1.104:3000/atualizar', { // Ajuste a URL para o seu servidor
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -20,7 +22,9 @@ const Login = () => {
         .then(data => {
             console.log(data);
             Alert.alert(data);
-        })
+            // Navegue para a tela de Perfil após o login bem-sucedido
+            navigation.navigate('Perfil');
+                  })
         .catch(error => {
             console.error('Erro:', error);
             Alert.alert('Erro ao enviar os dados');
@@ -40,16 +44,7 @@ const Login = () => {
                 <View style={styles.singleInput}>
                     <TextInput
                         required
-                        placeholder="Email"
-                        style={styles.input}
-                        value={email}
-                        onChangeText={setEmail}
-                    />
-                </View>
-                <View style={styles.singleInput}>
-                    <TextInput
-                        required
-                        placeholder="Senha"
+      placeholder="Senha"
                         secureTextEntry
                         style={styles.input}
                         value={senha}
@@ -60,28 +55,29 @@ const Login = () => {
                     <Text style={styles.buttonText}>Login</Text>
                 </TouchableOpacity>
                 <View style={styles.links}>
-                    <TouchableOpacity><Text style={styles.linkText}>Forgot password?</Text></TouchableOpacity>
-                    <TouchableOpacity><Text style={styles.linkText}>Sign up</Text></TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('Recuperar>                        <Text style={styles.linkText}>Forgot password?</Text>
+                    </TouchableOpacity>
+                    <TouchableOpacity onPress={() => navigation.navigate('Cadastro'>                        <Text style={styles.linkText}>Sign up</Text>
+                    </TouchableOpacity>
                 </View>
             </View>
 
             <View style={styles.footer}>
                 <View style={styles.divisor2}></View>
                 <TouchableOpacity>
-                    <Image source={require('./assets/insta.png')} style={styles.insta} />
-                </TouchableOpacity>
+                    <Image source={require('./assets/insta.png')} style={styles.ins>                </TouchableOpacity>
             </View>
         </ScrollView>
     );
 };
 
 const styles = StyleSheet.create({
-    container: {
+   container: {
         flexGrow: 1,
         backgroundColor: '#fff',
         justifyContent: 'center',
         alignItems: 'center',
-        padding: 20,
+         padding: 20,
     },
     headerContent: {
         width: '100%',
@@ -95,8 +91,7 @@ const styles = StyleSheet.create({
     },
     writeIt: {
         fontSize: 28,
-        fontFamily: 'cursive', // Brush Script MT não é suportado nativamente no React Native
-        color: '#702C2B',
+        fontFamily: 'cursive', // Brush Script MT não é suportado nativamente no Re>        color: '#702C2B',
         marginLeft: 10, // Add margin to separate text from the logo
     },
     divisor: {
@@ -117,7 +112,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     nome: {
-        fontFamily: 'Courier New',
+          fontFamily: 'Courier New',
         fontSize: 28,
         color: '#D3ADAD',
         marginBottom: 30,
@@ -153,7 +148,7 @@ const styles = StyleSheet.create({
         width: '100%',
     },
     linkText: {
-        color: '#702C2B',
+           color: '#702C2B',
     },
     footer: {
         width: '100%',
