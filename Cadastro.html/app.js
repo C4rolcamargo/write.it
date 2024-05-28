@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Text, TextInput, Button, TouchableOpacity, Alert, Image } from 'react-native';
+import { StyleSheet, View, Text, TextInput, TouchableOpacity, Alert, Image } from '>import { useNavigation } from '@react-navigation/native';
 
-export default function App() {
+export default function Cadastro() {
+  const navigation = useNavigation(); // Obtenha o objeto de navegação
+
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [confSenha, setConfSenha] = useState('');
@@ -14,25 +16,23 @@ export default function App() {
 
     const formData = { email, senha, conf_senha: confSenha };
 
-    fetch('http://192.168.1.141:3000/atualizar', {
+    fetch('http://192.168.1.104:3000/atualizar', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(formData),
     })
-      .then(response => response.text())
-      .then(data => {
-        console.log(data);
-        Alert.alert(data);
+      .then(() => {
+        // Navegue para a tela de Login após o cadastro bem-sucedido
+        navigation.navigate('Login');
       })
       .catch(error => {
         console.error('Erro:', error);
         Alert.alert('Erro ao enviar os dados');
       });
   };
-
-  return (
+   return (
     <View style={styles.container}>
       <View style={styles.headerContent}>
         <Image source={{ uri: 'path_to_your_logo_image' }} style={styles.logo} />
@@ -67,7 +67,7 @@ export default function App() {
               style={styles.input}
               placeholder="Confirmar Senha"
               value={confSenha}
-              onChangeText={setConfSenha}
+  onChangeText={setConfSenha}
               secureTextEntry
               autoCapitalize="none"
             />
@@ -80,8 +80,7 @@ export default function App() {
       <View style={styles.footer}>
         <View style={styles.divisor2} />
         <TouchableOpacity>
-          <Image source={{ uri: 'path_to_your_instagram_image' }} style={styles.insta} />
-        </TouchableOpacity>
+          <Image source={{ uri: 'path_to_your_instagram_image' }} style={styles.ins>        </TouchableOpacity>
       </View>
     </View>
   );
@@ -103,7 +102,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: 40, // Ajuste conforme necessário
     height: 40, // Ajuste conforme necessário
-    left: '3%',
+     left: '3%',
     top: '3%',
   },
   writeIt: {
@@ -139,7 +138,7 @@ const styles = StyleSheet.create({
   },
   form: {
     width: '80%',
-    alignItems: 'center',
+      alignItems: 'center',
   },
   singleInput: {
     width: '100%',
@@ -151,7 +150,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     backgroundColor: '#fffaf6',
     borderBottomWidth: 2,
-    borderBottomColor: '#D9D9D9',
+    borderBottomColor: '#D99D9D9',
   },
   button: {
     width: 70,
@@ -175,7 +174,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 4,
     backgroundColor: '#EEEEEE',
-    marginBottom: 10,
+        marginBottom: 10,
   },
   insta: {
     width: 30,
