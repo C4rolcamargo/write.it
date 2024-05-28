@@ -34,7 +34,7 @@ const App = () => {
         {
           text: 'Cancelar',
           style: 'cancel',
-        },
+               },
         {
           text: 'OK',
           onPress: (newContent) => noteSetter(newContent || currentContent),
@@ -52,8 +52,7 @@ const App = () => {
           <Text style={styles.headerTitle}>Write.it</Text>
         </View>
         <View style={styles.coverPhoto}>
-          <Image source={require('./assets/foto.png')} style={styles.coverPhotoImage} />
-        </View>
+          <Image source={require('./assets/foto.png')} style={styles.coverPhotoImag>        </View>
         <Note
           title="Nota 1"
           imageSource={require('./assets/1.png')}
@@ -70,7 +69,6 @@ const App = () => {
     </SafeAreaView>
   );
 };
-
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -106,7 +104,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderColor: '#ccc',
     borderWidth: 1,
-    borderRadius: 5,
+     borderRadius: 5,
     padding: 20,
     marginBottom: 20,
     width: '90%',
